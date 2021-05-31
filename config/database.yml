@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  host: localhost
+  database: staracademy
+  username: exoum
+  password: admin
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+
+development:
+  <<: *default
+  adapter: postgresql
+  encoding: utf8
+  host: localhost
+  database: staracademy
+  pool: 5
+  username: exoum
+  password: admin

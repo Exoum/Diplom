@@ -1,1 +1,18 @@
-$light:
+$light: #fff;
+$dark: #363636;
+$black: #000;
+
+@mixin breakpoint($point){
+  @if $point == lg{
+    @media(max-width: 992px){@content;}
+  }
+  @else if $point == md{
+    @media(max-width: 768px){@content;}
+  }
+  @else if $point == sm{
+    @media(max-width: 544px){@content;}
+  }
+  @else if $point == sx{
+    @media(max-width: 320px){@content;}
+  }
+}

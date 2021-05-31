@@ -1,0 +1,52 @@
+@import "variables";
+
+.courseRow{
+  width: 100%;
+  height: auto;
+  text-align: center;
+}
+main{
+  height: 100%;
+}
+.courseContainer{
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+//.page-slider{
+//  position: fixed;
+//}
+.courseWrapper{
+  display: flex;
+  justify-content: center;
+}
+#navbarSupportedContent{
+  z-index: 1;
+}
+.contactsContainer{
+  background: $light;
+  height: 300px;
+  margin-top: 15px;
+}
+//#Login{
+//  animation: login_animation 2s;
+//  margin-right: 25px;
+//}
+//
+//#Login_form{
+//  margin-bottom: -20%;
+//}
+//
+//@keyframes login_animation {
+//  0%{
+//    background-color: $light;
+//    width: 30px;
+//    margin-right: 25px;
+//  }
+//  100%{
+//    width: 282.85px;
+//    background-color: $dark;
+//    margin-right: 25px;
+//  }
+//}
