@@ -1,6 +1,9 @@
 $light: #fff;
 $dark: #363636;
 $black: #000;
+$green: #6ead3a;
+
+
 
 @mixin breakpoint($point){
   @if $point == lg{

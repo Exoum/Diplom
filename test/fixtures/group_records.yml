@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 
+  children_id: 
+  group_id: 
+  lesson_cost: 
+
+two:
+  id: 
+  children_id: 
+  group_id: 
+  lesson_cost: 

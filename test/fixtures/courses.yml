@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 
+  title: MyString
+  description: MyString
+  age: 
+  photo: MyString
+  sessions: 
+  people_in_group: 
+
+two:
+  id: 
+  title: MyString
+  description: MyString
+  age: 
+  photo: MyString
+  sessions: 
+  people_in_group: 

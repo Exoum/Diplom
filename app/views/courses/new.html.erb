@@ -1,0 +1,39 @@
+<div class="main">
+  <h3>Добавить курс</h3>
+  <div id="1" class="main-body card card-body">
+    <%=form_for :course, url: courses_path do |f| %>
+      <p>
+        Название курса<br>
+        <%= f.text_field :title, :title => "Используйте только латинские символы и знаки пунктуации", :pattern => "^[А-Яа-яЁё\s]+$"%>
+      </p>
+      <p>
+        Описание курса<br>
+        <%= f.text_area :description, :title => "Используйте только латинские символы и знаки пунктуации", :pattern => "^[а-яА-ЯёЁ\s]+$"%>
+      </p>
+      <p>
+        Ограничение по возрасту <br>
+        <%= f.text_field :age, :title => "Используйте числовой формат", :pattern => "^[0-9]+$"%>
+      </p>
+      <p>
+        Фото <br>
+        <%= f.text_field :photo %>
+      </p>
+      <p>
+        Количество занятий <br>
+        <%= f.text_field :sessions, :title => "Используйте числовой формат", :pattern => "^[0-9]+$"%>
+      </p>
+      <p>
+        Человек в группе <br>
+        <%= f.text_field :people_in_group, :title => "Используйте числовой формат", :pattern => "^[0-9]+$"%>
+      </p>
+      <p>
+        Направление курса<br>
+        <%= f.select :direction, Direction.all.collect {|c| [ c.name, c.id ] }%>
+      </p>
+      <p>
+        <%= f.submit "Добавить курс"%>
+      </p>
+    <%end%>
+
+  </div>
+</div>

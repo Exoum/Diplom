@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  contract_number: 
+  fio: MyString
+  parent_id: 
+
+two:
+  contract_number: 
+  fio: MyString
+  parent_id: 

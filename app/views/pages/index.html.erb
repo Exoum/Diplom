@@ -3,7 +3,7 @@
     <p style="text-align: center">Место для картинки</p>
   </header>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="./">Star-Academy</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -64,84 +64,63 @@
           <h1 class="mt-4">Развивающие курсы</h1>
           <section class="text-center">
             <div class="row wow fadeIn">
-              <div class="col-lg-6 col-md-6  mb-2 mt-4">
-                <div class="card shadow-5-dark">
+              <%@course.each do |course|%>
+                <div class="col-lg-3 col-md-6  mb-2 mt-4">
+                  <div class="card shadow-5-dark">
 
-                  <div class="view overlay">
-                    <img class="card-img-top" src="https://im0-tub-ru.yandex.net/i?id=e060ed4052c7db4c3d81780d97486772&n=13" alt="https://im0-tub-ru.yandex.net/i?id=e060ed4052c7db4c3d81780d97486772&n=13">
-                    <a href="#">
-                      <div class="mask rgba-white-slight"></div>
-                    </a>
+                    <div class="view overlay">
+                      <img class="card-img-top" src="<%=course.photo%>" alt="Место для картинка">
+                      <a href="#">
+                        <div class="mask rgba-white-slight"></div>
+                      </a>
+                    </div>
+
+                    <div class="card-body text-center">
+                      <a href="#" class="text-body text-decoration-none">
+                        <h5><%=course.title %></h5>
+                      </a>
+                      <h5>
+                        <strong>
+                          <a href="#" class="text-body text-decoration-none"><%=course.description%></a>
+                        </strong>
+                      </h5>
+                    </div>
+
                   </div>
-
-                  <div class="card-body text-center">
-                    <a href="#" class="text-body text-decoration-none">
-                      <h5>T-shirt</h5>
-                    </a>
-                    <h5>
-                      <strong>
-                        <a href="#" class="text-body text-decoration-none">Nasa T-shirt</a>
-                      </strong>
-                    </h5>
-                  </div>
-
                 </div>
-              </div>
-              <div class="col-lg-6 col-md-6 mb-2 mt-4">
-                <div class="card shadow-5-dark">
-
-                  <div class="view overlay">
-                    <img class="card-img-top" src="https://im0-tub-ru.yandex.net/i?id=e060ed4052c7db4c3d81780d97486772&n=13" alt="https://im0-tub-ru.yandex.net/i?id=e060ed4052c7db4c3d81780d97486772&n=13">
-                    <a href="#">
-                      <div class="mask rgba-white-slight"></div>
-                    </a>
-                  </div>
-
-                  <div class="card-body text-center">
-                    <a href="#" class="text-body text-decoration-none">
-                      <h5>T-shirt</h5>
-                    </a>
-                    <h5>
-                      <strong>
-                        <a href="#" class="text-body text-decoration-none">Nasa T-shirt</a>
-                      </strong>
-                    </h5>
-                  </div>
-
-                </div>
-              </div>
+              <% end %>
             </div>
           </section>
 
-          <nav class="page_slider d-flex justify-content-center wow fadeIn">
-            <ul class="pagination pg-blue">
-              <li class="page-item disabled">
-                <a href="#" class="page-link" aria-label="Previous">
-                  <span aria-hidden="true">&laquo</span>
-                </a>
-              </li>
-              <li class="page-item active">
-                <a href="" class="page-link" aria-label="Previous">
-                  <span aria-hidden="true">1</span>
-                </a>
-              </li>
-              <li class="page-item disabled">
-                <a href="" class="page-link" aria-label="Previous">
-                  <span aria-hidden="true">2</span>
-                </a>
-              </li>
-              <li class="page-item disabled">
-                <a href="" class="page-link" aria-label="Previous">
-                  <span aria-hidden="true">3</span>
-                </a>
-              </li>
-              <li class="page-item disabled">
-                <a href="" class="page-link" aria-label="Next">
-                  <span aria-hidden="true">&raquo</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
+<!--          <nav class="page_slider d-flex justify-content-center wow fadeIn">-->
+<!--            <ul class="pagination pg-blue">-->
+<!--              <li class="page-item disabled">-->
+<!--                <a href="#" class="page-link" aria-label="Previous">-->
+<!--                  <span aria-hidden="true">&laquo</span>-->
+<!--                </a>-->
+<!--              </li>-->
+<!--              <li class="page-item active">-->
+<!--                <a href="" class="page-link" aria-label="Previous">-->
+<!--                  <span aria-hidden="true">1</span>-->
+<!--                </a>-->
+<!--              </li>-->
+<!--              <li class="page-item disabled">-->
+<!--                <a href="" class="page-link" aria-label="Previous">-->
+<!--                  <span aria-hidden="true">2</span>-->
+<!--                </a>-->
+<!--              </li>-->
+<!--              <li class="page-item disabled">-->
+<!--                <a href="" class="page-link" aria-label="Previous">-->
+<!--                  <span aria-hidden="true">3</span>-->
+<!--                </a>-->
+<!--              </li>-->
+<!--              <li class="page-item disabled">-->
+<!--                <a href="" class="page-link" aria-label="Next">-->
+<!--                  <span aria-hidden="true">&raquo</span>-->
+<!--                </a>-->
+<!--              </li>-->
+<!--            </ul>-->
+<!--          </nav>-->
         </div>
       </div>
     </div>
@@ -151,222 +130,63 @@
           <h1 class="mt-4">IT-Курсы</h1>
           <section class="text-center">
             <div class="row wow fadeIn">
-              <div class="col-lg-3 col-md-6 mb-2 mt-4">
-                <div class="card shadow-5-dark">
+              <%@course.each do |course|%>
+                <div class="col-lg-3 col-md-6 mb-2 mt-4">
+                  <div class="card shadow-5-dark">
 
-                  <div class="view overlay">
-                    <img class="card-img-top" src="https://im0-tub-ru.yandex.net/i?id=e060ed4052c7db4c3d81780d97486772&n=13" alt="https://im0-tub-ru.yandex.net/i?id=e060ed4052c7db4c3d81780d97486772&n=13">
-                    <a href="#">
-                      <div class="mask rgba-white-slight"></div>
-                    </a>
+                    <div class="view overlay">
+                      <img class="card-img-top" src="<%=course.photo%>" alt="Место для картинка">
+                      <a href="#">
+                        <div class="mask rgba-white-slight"></div>
+                      </a>
+                    </div>
+
+                    <div class="card-body text-center">
+                      <a href="#" class="text-body text-decoration-none">
+                        <h5><%=course.title %></h5>
+                      </a>
+                      <h5>
+                        <strong>
+                          <a href="#" class="text-body text-decoration-none text-wrap"><%=course.description%></a>
+                        </strong>
+                      </h5>
+                    </div>
+
                   </div>
-
-                  <div class="card-body text-center">
-                    <a href="#" class="text-body text-decoration-none">
-                      <h5>T-shirt</h5>
-                    </a>
-                    <h5>
-                      <strong>
-                        <a href="#" class="text-body text-decoration-none">Nasa T-shirt</a>
-                      </strong>
-                    </h5>
-                  </div>
-
                 </div>
-              </div>
-              <div class="col-lg-3 col-md-6 mb-2 mt-4">
-                <div class="card shadow-5-dark">
-
-                  <div class="view overlay">
-                    <img class="card-img-top" src="https://im0-tub-ru.yandex.net/i?id=e060ed4052c7db4c3d81780d97486772&n=13" alt="https://im0-tub-ru.yandex.net/i?id=e060ed4052c7db4c3d81780d97486772&n=13">
-                    <a href="#">
-                      <div class="mask rgba-white-slight"></div>
-                    </a>
-                  </div>
-
-                  <div class="card-body text-center">
-                    <a href="#" class="text-body text-decoration-none">
-                      <h5>T-shirt</h5>
-                    </a>
-                    <h5>
-                      <strong>
-                        <a href="#" class="text-body text-decoration-none">Nasa T-shirt</a>
-                      </strong>
-                    </h5>
-                  </div>
-
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-6 mb-2 mt-4">
-                <div class="card shadow-5-dark">
-
-                  <div class="view overlay">
-                    <img class="card-img-top" src="https://im0-tub-ru.yandex.net/i?id=e060ed4052c7db4c3d81780d97486772&n=13" alt="https://im0-tub-ru.yandex.net/i?id=e060ed4052c7db4c3d81780d97486772&n=13">
-                    <a href="#">
-                      <div class="mask rgba-white-slight"></div>
-                    </a>
-                  </div>
-
-                  <div class="card-body text-center">
-                    <a href="#" class="text-body text-decoration-none">
-                      <h5>T-shirt</h5>
-                    </a>
-                    <h5>
-                      <strong>
-                        <a href="#" class="text-body text-decoration-none">Nasa T-shirt</a>
-                      </strong>
-                    </h5>
-                  </div>
-
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-6 mb-2 mt-4">
-                <div class="card shadow-5-dark">
-
-                  <div class="view overlay">
-                    <img class="card-img-top" src="https://im0-tub-ru.yandex.net/i?id=e060ed4052c7db4c3d81780d97486772&n=13" alt="https://im0-tub-ru.yandex.net/i?id=e060ed4052c7db4c3d81780d97486772&n=13">
-                    <a href="#">
-                      <div class="mask rgba-white-slight"></div>
-                    </a>
-                  </div>
-
-                  <div class="card-body text-center">
-                    <a href="#" class="text-body text-decoration-none">
-                      <h5>T-shirt</h5>
-                    </a>
-                    <h5>
-                      <strong>
-                        <a href="#" class="text-body text-decoration-none">Nasa T-shirt</a>
-                      </strong>
-                    </h5>
-                  </div>
-
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-6 mb-2 mt-4">
-                <div class="card shadow-5-dark">
-
-                  <div class="view overlay">
-                    <img class="card-img-top" src="https://im0-tub-ru.yandex.net/i?id=e060ed4052c7db4c3d81780d97486772&n=13" alt="https://im0-tub-ru.yandex.net/i?id=e060ed4052c7db4c3d81780d97486772&n=13">
-                    <a href="#">
-                      <div class="mask rgba-white-slight"></div>
-                    </a>
-                  </div>
-
-                  <div class="card-body text-center">
-                    <a href="#" class="text-body text-decoration-none">
-                      <h5>T-shirt</h5>
-                    </a>
-                    <h5>
-                      <strong>
-                        <a href="#" class="text-body text-decoration-none">Nasa T-shirt</a>
-                      </strong>
-                    </h5>
-                  </div>
-
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-6 mb-2 mt-4">
-                <div class="card shadow-5-dark">
-
-                  <div class="view overlay">
-                    <img class="card-img-top" src="https://im0-tub-ru.yandex.net/i?id=e060ed4052c7db4c3d81780d97486772&n=13" alt="https://im0-tub-ru.yandex.net/i?id=e060ed4052c7db4c3d81780d97486772&n=13">
-                    <a href="#">
-                      <div class="mask rgba-white-slight"></div>
-                    </a>
-                  </div>
-
-                  <div class="card-body text-center">
-                    <a href="#" class="text-body text-decoration-none">
-                      <h5>T-shirt</h5>
-                    </a>
-                    <h5>
-                      <strong>
-                        <a href="#" class="text-body text-decoration-none">Nasa T-shirt</a>
-                      </strong>
-                    </h5>
-                  </div>
-
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-6 mb-2 mt-4">
-                <div class="card shadow-5-dark">
-
-                  <div class="view overlay">
-                    <img class="card-img-top" src="https://im0-tub-ru.yandex.net/i?id=e060ed4052c7db4c3d81780d97486772&n=13" alt="https://im0-tub-ru.yandex.net/i?id=e060ed4052c7db4c3d81780d97486772&n=13">
-                    <a href="#">
-                      <div class="mask rgba-white-slight"></div>
-                    </a>
-                  </div>
-
-                  <div class="card-body text-center">
-                    <a href="#" class="text-body text-decoration-none">
-                      <h5>T-shirt</h5>
-                    </a>
-                    <h5>
-                      <strong>
-                        <a href="#" class="text-body text-decoration-none">Nasa T-shirt</a>
-                      </strong>
-                    </h5>
-                  </div>
-
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-6 mb-2 mt-4">
-                <div class="card shadow-5-dark">
-
-                  <div class="view overlay">
-                    <img class="card-img-top" src="https://im0-tub-ru.yandex.net/i?id=e060ed4052c7db4c3d81780d97486772&n=13" alt="https://im0-tub-ru.yandex.net/i?id=e060ed4052c7db4c3d81780d97486772&n=13">
-                    <a href="#">
-                      <div class="mask rgba-white-slight"></div>
-                    </a>
-                  </div>
-
-                  <div class="card-body text-center">
-                    <a href="#" class="text-body text-decoration-none">
-                      <h5>T-shirt</h5>
-                    </a>
-                    <h5>
-                      <strong>
-                        <a href="#" class="text-body text-decoration-none">Nasa T-shirt</a>
-                      </strong>
-                    </h5>
-                  </div>
-
-                </div>
-              </div>
+              <% end %>
             </div>
           </section>
 
-          <nav class="page_slider d-flex justify-content-center wow fadeIn">
-            <ul class="pagination pg-blue">
-              <li class="page-item disabled">
-                <a href="#" class="page-link" aria-label="Previous">
-                  <span aria-hidden="true">&laquo</span>
-                </a>
-              </li>
-              <li class="page-item active">
-                <a href="" class="page-link" aria-label="Previous">
-                  <span aria-hidden="true">1</span>
-                </a>
-              </li>
-              <li class="page-item disabled">
-                <a href="" class="page-link" aria-label="Previous">
-                  <span aria-hidden="true">2</span>
-                </a>
-              </li>
-              <li class="page-item disabled">
-                <a href="" class="page-link" aria-label="Previous">
-                  <span aria-hidden="true">3</span>
-                </a>
-              </li>
-              <li class="page-item disabled">
-                <a href="" class="page-link" aria-label="Next">
-                  <span aria-hidden="true">&raquo</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
+<!--          <nav class="page_slider d-flex justify-content-center wow fadeIn">-->
+<!--            <ul class="pagination pg-blue">-->
+<!--              <li class="page-item disabled">-->
+<!--                <a href="#" class="page-link" aria-label="Previous">-->
+<!--                  <span aria-hidden="true">&laquo</span>-->
+<!--                </a>-->
+<!--              </li>-->
+<!--              <li class="page-item active">-->
+<!--                <a href="" class="page-link" aria-label="Previous">-->
+<!--                  <span aria-hidden="true">1</span>-->
+<!--                </a>-->
+<!--              </li>-->
+<!--              <li class="page-item disabled">-->
+<!--                <a href="" class="page-link" aria-label="Previous">-->
+<!--                  <span aria-hidden="true">2</span>-->
+<!--                </a>-->
+<!--              </li>-->
+<!--              <li class="page-item disabled">-->
+<!--                <a href="" class="page-link" aria-label="Previous">-->
+<!--                  <span aria-hidden="true">3</span>-->
+<!--                </a>-->
+<!--              </li>-->
+<!--              <li class="page-item disabled">-->
+<!--                <a href="" class="page-link" aria-label="Next">-->
+<!--                  <span aria-hidden="true">&raquo</span>-->
+<!--                </a>-->
+<!--              </li>-->
+<!--            </ul>-->
+<!--          </nav>-->
         </div>
       </div>
     </div>
