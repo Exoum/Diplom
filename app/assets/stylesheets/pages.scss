@@ -1,5 +1,19 @@
 @import "variables";
 
+.background_img{
+  background: url(./background.png) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+.scroll-tr-block{
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+}
 .courseRow{
   width: 100%;
   height: auto;
@@ -14,12 +28,11 @@ main{
   justify-content: space-between;
   width: 100%;
 }
-//.page-slider{
-//  position: fixed;
-//}
 .courseWrapper{
   display: flex;
   justify-content: center;
+  width: 100%;
+  height: auto;
 }
 #navbarSupportedContent{
   z-index: 1;
@@ -33,27 +46,43 @@ main{
   height: 200px;
   width: 100%;
 }
-.card{
+.card-item{
   height: 300px;
+  min-height: 300px;
+  min-width: 300px;
 }
-//#Login{
-//  animation: login_animation 2s;
-//  margin-right: 25px;
-//}
-//
-//#Login_form{
-//  margin-bottom: -20%;
-//}
-//
-//@keyframes login_animation {
-//  0%{
-//    background-color: $light;
-//    width: 30px;
-//    margin-right: 25px;
-//  }
-//  100%{
-//    width: 282.85px;
-//    background-color: $dark;
-//    margin-right: 25px;
-//  }
-//}
+.text-body{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+h5:hover{
+  color: $green;
+  transition: 1s;
+}
+.contactsContainer{
+  height: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.leftContainer{
+  width: 50%;
+  height: 100%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: self-start;
+  padding: 25px;
+}
+.rightContainer{
+  width: 50%;
+  height: 100%;
+  background-color: white;
+}

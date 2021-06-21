@@ -1,0 +1,36 @@
+<div class="Teacher-main">
+  <div class="Teacher-main_block">
+    <h3>Добавить преподавателя</h3>
+    <div id="1" class="Teacher-main_body card card-body">
+      <%=form_for :teacher, url: teacher_index_path do |f|%>
+        <p>
+          Фио преподавателя<br>
+          <%= f.text_field :fio, :title => "Используйте только латинские символы и знаки пунктуации", :pattern => "^[А-Яа-яЁё\s]+$"%>
+        </p>
+        <p>
+          Номер телефона<br>
+          <%= f.phone_field :phone_number, :title => "Используйте только цифры. Номер начинайте с 8", :pattern => "^((+7|7|8)+([0-9]){10})$"%>
+        </p>
+        <p>
+          Ставка/час<br>
+          <%= f.text_field :hourly_rate, :title => "Используйте числовой формат", :pattern => "^[0-9]+$"%>
+        </p>
+<!--        <p>-->
+<!--          Роль пользователя<br>-->
+          <%#= f.select :role_id, Role.all.collect {|c| [ c.name, c.id ] }%>
+<!--        </p>-->
+        <p>
+          Email пользователя<br>
+          <%= f.email_field :email%>
+        </p>
+        <p>
+          Пароль пользователя<br>
+          <%= f.text_field :password, :readonly => true, value: @password%>
+        </p>
+        <p>
+          <%= f.submit "Добавить преподавателя"%>
+        </p>
+      <%end%>
+    </div>
+  </div>
+</div>

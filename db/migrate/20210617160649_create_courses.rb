@@ -8,8 +8,10 @@ class CreateCourses < ActiveRecord::Migration[6.1]
       t.integer :sessions
       t.integer :people_in_group
 
+      t.belongs_to :direction, foreign_key:true
       t.timestamps
     end
-    add_reference :courses, :direction, index: true
   end
 end
+
+

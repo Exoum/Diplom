@@ -10,13 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_17_075409) do
+ActiveRecord::Schema.define(version: 2021_06_20_112833) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "children", force: :cascade do |t|
-    t.integer "contract_number"
     t.text "fio"
     t.integer "parent_id"
     t.datetime "created_at", precision: 6, null: false
@@ -37,9 +36,10 @@ ActiveRecord::Schema.define(version: 2021_06_17_075409) do
     t.text "photo"
     t.integer "sessions"
     t.integer "people_in_group"
-    t.integer "direction"
+    t.bigint "direction_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["direction_id"], name: "index_courses_on_direction_id"
   end
 
   create_table "directions", force: :cascade do |t|
@@ -74,11 +74,14 @@ ActiveRecord::Schema.define(version: 2021_06_17_075409) do
 
   create_table "parents", force: :cascade do |t|
     t.text "fio"
-    t.integer "phone_number"
-    t.integer "additional_phone_number"
-    t.text "email"
+    t.text "phone_number"
+    t.text "additional_phone_number"
+    t.bigint "role_id"
+    t.bigint "users_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["role_id"], name: "index_parents_on_role_id"
+    t.index ["users_id"], name: "index_parents_on_users_id"
   end
 
   create_table "payments", force: :cascade do |t|
@@ -104,18 +107,29 @@ ActiveRecord::Schema.define(version: 2021_06_17_075409) do
 
   create_table "teachers", force: :cascade do |t|
     t.text "fio"
-    t.integer "phone_number"
+    t.text "phone_number"
     t.integer "hourly_rate"
+    t.bigint "role_id"
+    t.bigint "users_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["role_id"], name: "index_teachers_on_role_id"
+    t.index ["users_id"], name: "index_teachers_on_users_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.text "login"
-    t.text "password"
-    t.integer "role_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "courses", "directions"
+  add_foreign_key "parents", "roles"
+  add_foreign_key "parents", "users", column: "users_id"
+  add_foreign_key "teachers", "roles"
+  add_foreign_key "teachers", "users", column: "users_id"
 end

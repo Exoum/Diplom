@@ -1,0 +1,134 @@
+<div id="main_block">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="./">Star-Academy</a>
+    <div class="back">
+      <a class="text-decoration-none" href="">вернуться на главную</a>
+    </div>
+  </nav>
+  <div class="user_info">
+    <p style="font-size:24px">Профиль</p>
+    <div class="Profile_info">
+      <div class="first_name">
+        <p>Имя: </p>
+        <p></p>
+      </div>
+      <div class="last_name">
+        <p>Фамилия: </p>
+        <p></p>
+      </div>
+      <div class="phone_number">
+        <p>Номер телефона: </p>
+        <p></p>
+      </div>
+      <div class="email">
+        <p>Email: </p>
+        <p></p>
+      </div>
+    </div>
+  </div>
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="home-tab" data-toggle="tab" href="#" role="tab" aria-controls="home" aria-selected="true">Компьютерная графика</a>
+    </li>
+  </ul>
+  <div class="tab-body">
+    <div id="info">
+
+    </div>
+    <div class="tab-block">
+      <div class="scroll_row">
+        <div class="row wow fadeIn">
+          <div class="card card-body visits-item col-md-1 col-lg-1 mt-2">
+            <div class="table-scroll-block overflow-auto overflow-x-auto">
+              <table class="table table-bordered table-condensed table-striped border-1 border-secondary">
+                <thead>
+                <tr>
+                  <th rowspan="2" class="text-center">№</th>
+                  <th rowspan="2" class="text-center">Фио ребенка</th>
+                  <th colspan="31">Дата</th>
+                </tr>
+                <tr>
+                  <th scope="col">01.02</th>
+                  <th scope="col">02.02</th>
+                  <th scope="col">03.02</th>
+                  <th scope="col">04.02</th>
+                  <th scope="col">05.02</th>
+                  <th scope="col">06.02</th>
+                  <th scope="col">07.02</th>
+                  <th scope="col">08.02</th>
+                  <th scope="col">09.02</th>
+                  <th scope="col">10.02</th>
+                  <th scope="col">11.02</th>
+                  <th scope="col">12.02</th>
+                  <th scope="col">13.02</th>
+                  <th scope="col">14.02</th>
+                  <th scope="col">15.02</th>
+                  <th scope="col">16.02</th>
+                  <th scope="col">17.02</th>
+                  <th scope="col">18.02</th>
+                  <th scope="col">19.02</th>
+                  <th scope="col">20.02</th>
+                  <th scope="col">21.02</th>
+                  <th scope="col">22.02</th>
+                  <th scope="col">23.02</th>
+                  <th scope="col">24.02</th>
+                  <th scope="col">25.02</th>
+                  <th scope="col">26.02</th>
+                  <th scope="col">27.02</th>
+                  <th scope="col">28.02</th>
+                  <th scope="col">29.02</th>
+                  <th scope="col">30.02</th>
+                  <th scope="col">31.02</th>
+                </tr>
+                </thead>
+                <tbody>
+                <%=20.times do%>
+                  <tr>
+                    <td><%=@count+=1%></td>
+                    <td><%=Faker::Name.name%></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                  </tr>
+                <%end %>
+                </tbody>
+              </table>
+            </div>
+            <div class="button-block w-100">
+              <button class="btn btn-success btn-sm float-end" type="button">Последние оплаты</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="portfolio btn btn-success btn-sm float-start" type="button">Добавить отработку</button>
+  </div>
+</div>

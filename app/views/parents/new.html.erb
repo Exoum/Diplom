@@ -1,0 +1,36 @@
+<div class="Parent-main">
+  <div class="Parent-main_block">
+    <h3>Добавить родителя</h3>
+    <div id="1" class="Parent-main_body card card-body">
+      <%=form_for :parent, url: parents_path do |f|%>
+        <p>
+          Фио родителя<br>
+          <%= f.text_field :fio, :title => "Используйте только латинские символы и знаки пунктуации", :pattern => "^[А-Яа-яЁё\s]+$"%>
+        </p>
+        <p>
+          Номер телефона<br>
+          <%= f.phone_field :phone_number, :title => "Используйте числовой формат", :pattern => "^[0-9]+$" %>
+        </p>
+        <p>
+          Дополнительный номер телефона<br>
+          <%= f.text_field :additional_phone_number, :title => "Используйте числовой формат", :pattern => "^[0-9]+$"%>
+        </p>
+        <p>
+          Фио ребёнка<br>
+          <%= f.text_field :fio, :title => "Используйте только латинские символы и знаки пунктуации", :pattern => "^[А-Яа-яЁё\s]+$"%>
+        </p>
+        <p>
+          Email пользователя<br>
+          <%= f.email_field :email%>
+        </p>
+        <p>
+          Пароль пользователя<br>
+          <%= f.text_field :password, value: @password%>
+        </p>
+        <p>
+          <%= f.submit "Добавить родителя"%>
+        </p>
+      <%end%>
+    </div>
+  </div>
+</div>

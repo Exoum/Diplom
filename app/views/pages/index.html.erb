@@ -1,197 +1,199 @@
-<div class="wrapper container">
-  <header style="display: flex;  justify-content: center;align-content: space-between;align-items: center;flex-direction: column;">
-    <p style="text-align: center">Место для картинки</p>
-  </header>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="./">Star-Academy</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" href="#itCourse">Курсы</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">АБОБА</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#" aria-expanded="false">Dropdown</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link float-end" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-        <li class="nav-item">
-          <a type="button" class="btn" data-bs-toggle="modal" data-bs-target="#exampleModal">Вход</a>
-        </li>
-      </ul>
-    </div>
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Форма входа</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <div class="container-fluid">
-              <form>
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">Логин</label>
-                  <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                  <div id="emailHelp" class="form-text">Введите свой логин.</div>
+<div class="background_img">
+  <div class="scroll-tr-block">
+    <div class="wrapper container" style="background-color: rgba(255,255,255,0.3)">
+      <header style="display: flex;  justify-content: center;align-content: space-between;align-items: center;flex-direction: column;">
+        <img class="card-img-top" src="https://imageup.ru/img139/3762674/screenshot-2021-06-18-at-06-33-55-it-napravleniia-star-academy-ru.jpg" alt="Место для картинки">
+      </header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="./">Star-Academy</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" href="">Курсы</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#itCourse">IT-Курсы</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#Contacts" aria-expanded="false">Контакты</a>
+            </li>
+            <%if user_signed_in? %>
+              <li class="nav-item">
+                <%=link_to current_user.email, new_user_session_path, class: "nav-link"%>
+              </li>
+            <%else%>
+              <li class="nav-item">
+                <%=link_to 'Вход', new_user_session_path, class: "nav-link"%>
+              </li>
+            <%end%>
+          </ul>
+        </div>
+<!--        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">-->
+<!--          <div class="modal-dialog">-->
+<!--            <div class="modal-content">-->
+<!--              <div class="modal-header">-->
+<!--                <h5 class="modal-title" id="exampleModalLabel">Форма входа</h5>-->
+<!--                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>-->
+<!--              </div>-->
+<!--              <div class="modal-body">-->
+<!--                <div class="container-fluid">-->
+<!--                  <form>-->
+<!--                    <div class="mb-3">-->
+<!--                      <label for="exampleInputEmail1" class="form-label">Логин</label>-->
+<!--                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">-->
+<!--                      <div id="emailHelp" class="form-text">Введите свой логин.</div>-->
+<!--                    </div>-->
+<!--                    <div class="mb-3">-->
+<!--                      <label for="exampleInputPassword1" class="form-label">Пароль</label>-->
+<!--                      <input type="password" class="form-control" id="exampleInputPassword1">-->
+<!--                    </div>-->
+<!--                    <div class="mb-3 form-check">-->
+<!--                      <input type="checkbox" class="form-check-input" id="exampleCheck1">-->
+<!--                      <label class="form-check-label" for="exampleCheck1">Запомнить меня</label>-->
+<!--                    </div>-->
+<!--                    <button type="submit" class="btn btn-primary">Войти</button>-->
+<!--                  </form>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+      </nav>
+      <main>
+        <div class="courseContainer">
+          <div class="courseWrapper">
+            <div class="courseRow row">
+              <h1 class="mt-4">Развивающие курсы</h1>
+              <section class="text-center">
+                <div class="row wow fadeIn">
+                  <%@course.each do |course|%>
+                    <%if course.direction_id == Direction::find_by_name("Развивающие").id%>
+                      <div class="col-sm-3 col-6 mb-3 mb-md-4 pr-sm-0 pr-md-0 pl-md-4 pl-sm-4 pl-0 pr-2">
+                        <div class="card card-item shadow-5-dark">
+
+                          <div class="view overlay">
+                            <img class="card-img-top" src="<%=course.photo%>" alt="Место для картинка">
+                            <a href="#">
+                              <div class="mask rgba-white-slight"></div>
+                            </a>
+                          </div>
+
+                          <div class="card-body text-center">
+                            <a href="#" class="text-body w-100 h-100 text-decoration-none">
+                              <h5><%=course.title %></h5>
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                <% end %>
                 </div>
-                <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label">Пароль</label>
-                  <input type="password" class="form-control" id="exampleInputPassword1">
-                </div>
-                <div class="mb-3 form-check">
-                  <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                  <label class="form-check-label" for="exampleCheck1">Запомнить меня</label>
-                </div>
-                <button type="submit" class="btn btn-primary">Войти</button>
-              </form>
+              </section>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </nav>
-  <main>
-    <div class="courseContainer">
-      <div class="courseWrapper">
-        <div class="courseRow row">
-          <h1 class="mt-4">Развивающие курсы</h1>
-          <section class="text-center">
-            <div class="row wow fadeIn">
-              <%@course.each do |course|%>
-                <div class="col-lg-3 col-md-6  mb-2 mt-4">
-                  <div class="card shadow-5-dark">
+        <div class="courseContainer" id="itCourse">
+          <div class="courseWrapper">
+            <div class="courseRow row">
+              <h1 class="mt-4">IT-Курсы</h1>
+              <section class="text-center">
+                <div class="row wow fadeIn">
+                  <%@course.each do |course|%>
+                    <%if course.direction_id == Direction::find_by_name("IT").id%>
+                      <div class="col-sm-3 col-6 mb-3 mb-md-4 pr-sm-0 pr-md-0 pl-md-4 pl-sm-4 pl-0 pr-2">
+                        <div class="card card-item shadow-5-dark">
 
-                    <div class="view overlay">
-                      <img class="card-img-top" src="<%=course.photo%>" alt="Место для картинка">
-                      <a href="#">
-                        <div class="mask rgba-white-slight"></div>
-                      </a>
-                    </div>
+                          <div class="view overlay">
+                            <img class="card-img-top" src="<%=course.photo%>" alt="Место для картинка">
+                            <a href="#">
+                              <div class="mask rgba-white-slight"></div>
+                            </a>
+                          </div>
 
-                    <div class="card-body text-center">
-                      <a href="#" class="text-body text-decoration-none">
-                        <h5><%=course.title %></h5>
-                      </a>
-                      <h5>
-                        <strong>
-                          <a href="#" class="text-body text-decoration-none"><%=course.description%></a>
-                        </strong>
-                      </h5>
-                    </div>
+                          <div class="card-body text-center">
+                            <a href="#" class="text-body text-decoration-none">
+                              <h5><%=course.title %></h5>
+                            </a>
+                          </div>
 
-                  </div>
+                        </div>
+                      </div>
+                    <% end %>
+                <% end %>
                 </div>
-              <% end %>
+              </section>
+
+              <!--          <nav class="page_slider d-flex justify-content-center wow fadeIn">-->
+              <!--            <ul class="pagination pg-blue">-->
+              <!--              <li class="page-item disabled">-->
+              <!--                <a href="#" class="page-link" aria-label="Previous">-->
+              <!--                  <span aria-hidden="true">&laquo</span>-->
+              <!--                </a>-->
+              <!--              </li>-->
+              <!--              <li class="page-item active">-->
+              <!--                <a href="" class="page-link" aria-label="Previous">-->
+              <!--                  <span aria-hidden="true">1</span>-->
+              <!--                </a>-->
+              <!--              </li>-->
+              <!--              <li class="page-item disabled">-->
+              <!--                <a href="" class="page-link" aria-label="Previous">-->
+              <!--                  <span aria-hidden="true">2</span>-->
+              <!--                </a>-->
+              <!--              </li>-->
+              <!--              <li class="page-item disabled">-->
+              <!--                <a href="" class="page-link" aria-label="Previous">-->
+              <!--                  <span aria-hidden="true">3</span>-->
+              <!--                </a>-->
+              <!--              </li>-->
+              <!--              <li class="page-item disabled">-->
+              <!--                <a href="" class="page-link" aria-label="Next">-->
+              <!--                  <span aria-hidden="true">&raquo</span>-->
+              <!--                </a>-->
+              <!--              </li>-->
+              <!--            </ul>-->
+              <!--          </nav>-->
             </div>
-          </section>
-
-<!--          <nav class="page_slider d-flex justify-content-center wow fadeIn">-->
-<!--            <ul class="pagination pg-blue">-->
-<!--              <li class="page-item disabled">-->
-<!--                <a href="#" class="page-link" aria-label="Previous">-->
-<!--                  <span aria-hidden="true">&laquo</span>-->
-<!--                </a>-->
-<!--              </li>-->
-<!--              <li class="page-item active">-->
-<!--                <a href="" class="page-link" aria-label="Previous">-->
-<!--                  <span aria-hidden="true">1</span>-->
-<!--                </a>-->
-<!--              </li>-->
-<!--              <li class="page-item disabled">-->
-<!--                <a href="" class="page-link" aria-label="Previous">-->
-<!--                  <span aria-hidden="true">2</span>-->
-<!--                </a>-->
-<!--              </li>-->
-<!--              <li class="page-item disabled">-->
-<!--                <a href="" class="page-link" aria-label="Previous">-->
-<!--                  <span aria-hidden="true">3</span>-->
-<!--                </a>-->
-<!--              </li>-->
-<!--              <li class="page-item disabled">-->
-<!--                <a href="" class="page-link" aria-label="Next">-->
-<!--                  <span aria-hidden="true">&raquo</span>-->
-<!--                </a>-->
-<!--              </li>-->
-<!--            </ul>-->
-<!--          </nav>-->
+          </div>
         </div>
-      </div>
-    </div>
-    <div class="courseContainer" id="itCourse">
-      <div class="courseWrapper">
-        <div class="courseRow row">
-          <h1 class="mt-4">IT-Курсы</h1>
-          <section class="text-center">
-            <div class="row wow fadeIn">
-              <%@course.each do |course|%>
-                <div class="col-lg-3 col-md-6 mb-2 mt-4">
-                  <div class="card shadow-5-dark">
+        <div class="contactsContainer" id="Contacts">
+          <div class="leftContainer">
+            <span style="font-family:comic sans ms,comic-sans-w01-regular,comic-sans-w02-regular,comic-sans-w10-regular,cursive; font-size: 24px">
+              <span style="color:#AD74A6">​КОНТАКТНАЯ ИНФОРМАЦИЯ</span>
+            </span>
+            <p class="font_8" style="line-height:1.3em;font-size:14px">
+              <span>​Красноярск, Россия,&nbsp;Читинская 6, оф. 1-16</span>
+            </p>
+            <p class="font_8" style="line-height:1.3em;font-size:14px">
+              <span class="color_24">Тел.: +7 (3912) 271 36 09</span>
+            </p>
+            <p class="font_8" style="line-height:1.3em;font-size:14px">
+              <span style="font-weight:bold">
+                <span style="color:#1A6271">Заведующий средней и старшей школы (11-17 лет)</span>
+              </span>
+            </p>
+            <p class="font_8" style="font-size:14px">Оксана Сергеевна</p>
+            <p class="font_7" style="font-size:16px">
+              <span style="color:#1A6271">
+                <span style="font-weight:bold">Заведующий младшей школы и дошкольников (4-10 лет)</span>
+              </span>
+            </p>
+            <p class="font_8" style="font-size:14px">Надежда Петровна</p>
+            <p class="font_8" style="font-size:14px">
+              <span class="color_24">Наша почта:
+                <object height="0">
+                  <a data-auto-recognition="true" href="mailto:star_academy_krsk@mail.ru">star_academy_krsk@mail.ru</a>
+                </object>
+              </span>
+            </p>
+          </div>
+          <div class="rightContainer">
 
-                    <div class="view overlay">
-                      <img class="card-img-top" src="<%=course.photo%>" alt="Место для картинка">
-                      <a href="#">
-                        <div class="mask rgba-white-slight"></div>
-                      </a>
-                    </div>
-
-                    <div class="card-body text-center">
-                      <a href="#" class="text-body text-decoration-none">
-                        <h5><%=course.title %></h5>
-                      </a>
-                      <h5>
-                        <strong>
-                          <a href="#" class="text-body text-decoration-none text-wrap"><%=course.description%></a>
-                        </strong>
-                      </h5>
-                    </div>
-
-                  </div>
-                </div>
-              <% end %>
-            </div>
-          </section>
-
-<!--          <nav class="page_slider d-flex justify-content-center wow fadeIn">-->
-<!--            <ul class="pagination pg-blue">-->
-<!--              <li class="page-item disabled">-->
-<!--                <a href="#" class="page-link" aria-label="Previous">-->
-<!--                  <span aria-hidden="true">&laquo</span>-->
-<!--                </a>-->
-<!--              </li>-->
-<!--              <li class="page-item active">-->
-<!--                <a href="" class="page-link" aria-label="Previous">-->
-<!--                  <span aria-hidden="true">1</span>-->
-<!--                </a>-->
-<!--              </li>-->
-<!--              <li class="page-item disabled">-->
-<!--                <a href="" class="page-link" aria-label="Previous">-->
-<!--                  <span aria-hidden="true">2</span>-->
-<!--                </a>-->
-<!--              </li>-->
-<!--              <li class="page-item disabled">-->
-<!--                <a href="" class="page-link" aria-label="Previous">-->
-<!--                  <span aria-hidden="true">3</span>-->
-<!--                </a>-->
-<!--              </li>-->
-<!--              <li class="page-item disabled">-->
-<!--                <a href="" class="page-link" aria-label="Next">-->
-<!--                  <span aria-hidden="true">&raquo</span>-->
-<!--                </a>-->
-<!--              </li>-->
-<!--            </ul>-->
-<!--          </nav>-->
+          </div>
         </div>
-      </div>
+      </main>
     </div>
-    <div class="contactsContainer">
-
-    </div>
-  </main>
+  </div>
 </div>
